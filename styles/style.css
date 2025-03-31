@@ -225,6 +225,7 @@ ol {
 
 /* контейнер со списком карточек */
 .content__list-container {
+  position: relative;
   display: flex;
   flex-direction: column;
   overflow: auto;
