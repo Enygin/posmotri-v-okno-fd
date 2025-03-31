@@ -64,9 +64,7 @@ ol {
   grid-template-columns: 711px 399px;
   height: 534px;
   gap: 30px;
-  align-items: end;         /*прижали содержимое к низу*/
   margin: 133px 30px;
-  
   grid-template-areas:
     'video_content content_list';
 }
@@ -108,7 +106,6 @@ ol {
   font-weight: 400;
   font-size: 18px;
   border: none;
-
 }
 
 /* стили для заголовков формы поиска */
@@ -123,11 +120,6 @@ ol {
   display: flex;
   flex-direction: row;
   align-items: center;
-}
-
-/* стили для подписей элементов формы для скринридера */
-.search-form__label-text {
-
 }
 
 /* скрываем элементы */
@@ -164,11 +156,6 @@ ol {
   gap: 15px;
 }
 
-/* квадратная кнопка не работает*/
-.search-form__checkbox {
-
-}
-
 /* кастомные стили кнопки чекбокса */
 .search-form__pseudo-checkbox {
   width: 19px;
@@ -178,7 +165,6 @@ ol {
   margin-right: 5px;
 }
 
-/* TODO внутренний квадрат должен центрироваться через flex, а не абсолют */
 /* стили кнопки чекбокса при нажатии */
 .search-form__pseudo-checkbox::after {
   display: none;
@@ -205,7 +191,8 @@ ol {
   grid-area: content_list;
   display: flex;
   flex-direction: column;
-  max-height: 534px;
+  justify-content: start;
+  height: 534px;
 }
 
 /* стили заголовка */
@@ -222,7 +209,6 @@ ol {
   color: #545050;
 }
 
-
 /* контейнер со списком карточек */
 .content__list-container {
   position: relative;
@@ -230,44 +216,44 @@ ol {
   flex-direction: column;
   overflow: auto;
   gap: 30px;
+  height: 298px;
 }
 
-
+/* контейнер списка карточек */
 .content__list {
   display: flex;
   flex-direction: column;
   gap: 30px;
 }
 
-.cards-list-item-template {
-
-}
-
+/* контейнер для элемента списка */
 .content__list-item {
-  
+  padding: 0 3px;
+  height: 103px;
 }
 
+/* стили для ссылки */
 .content__card-link {
   text-decoration: none;
-  color: #fff;
-  max-width: 390px;    /* не работает*/
-  
+  color: #fff; 
 }
 
+/* контейнер для карточки */
 .content__video-card {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 	align-items: flex-start;
-
-  
+  height: 103px;
 }
 
+/* контейнер для заголовка и текстового описания карточки */
 .content__video-card-description-container {
   width: 50%;
   flex-grow: 1;
 }
 
+/* стили заголовка карточки */
 .content__video-card-title {
   font-size: 30px;
   text-transform: uppercase;
@@ -277,13 +263,16 @@ ol {
   font-family: 'Oswald', sans-serif;
 }
 
+/* стили текстового описания карточки */
 .content__video-card-description {
-  /*line-clamp*/
+  line-clamp: 2;
   line-height: 16.2px;
 }
 
+/* контейнер для видео карточки */
 .content__video-card-thumbnail {
   width: 50%;
+  height: 100%;
   object-fit: cover;
   object-position: center;
 }
@@ -308,13 +297,10 @@ ol {
   align-self: flex-end;
 }
 
-.more-button-template {
-display: block;
-}
-
 /* дополнительне стили кнопки "Показать еще" */
 .more-button {
-
+  margin: 1px 3px;
+  min-height: 34px;
 }
 
 
@@ -338,11 +324,10 @@ display: block;
 
 /* active кнопки найти и карточки*/
 .button:active,
-.content__card-link_current:active {
+.content__card-link_current:active,
+.content__card-link_current:first-child {
   background-color: #545050;
 }
-
-
 
 
 /* focus-visible */
@@ -353,8 +338,3 @@ display: block;
   outline: 1px solid #fff;
   outline-offset: 1px;
 }
-
-
-
-
-
