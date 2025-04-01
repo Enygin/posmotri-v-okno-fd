@@ -15,6 +15,8 @@ html {
 
 .page {
   display: flex;
+  justify-content: center;    /* содержимое страницы выровнено по центру */
+  align-items: center;        /* содержимое страницы выровнено по центру */
   inline-size: 1200px;
   block-size: 100%;
   margin: auto;
@@ -62,7 +64,7 @@ ol {
 .content {
   display: grid;
   grid-template-columns: 711px 399px;
-  height: 534px;
+  /*height: 534px;*/  /* убрал высоту */
   gap: 30px;
   margin: 133px 30px;
   grid-template-areas:
@@ -91,11 +93,12 @@ ol {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;    /* добавил позиционирование видео по центру */
 }
 
 /* контейнер с формой поиска */
 .search-form {
-  height: 54px;
+  /*height: 54px;/* /* убрал высоту */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -135,10 +138,12 @@ ol {
 
 /* стили для текстового поля формы поиска */
 .search-form__textfield {
-  width: 225px;
-  height: 27px;
-  border-top: 1px solid rgba(255, 255, 255, 0.7);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+  min-width: 225px;          /* поменял width на min-width */
+  min-height: 27px;          /* поменял width на min-width */
+  /*border-top: 1px solid rgba(255, 255, 255, 0.7);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.7);*/
+  border-top: 1px solid #fff;      /* изменил цвет линии */
+  border-bottom: 1px solid #fff;   /* изменил цвет линии */
   border-left: none;
   border-right: none;
   background-color: transparent;
@@ -146,7 +151,8 @@ ol {
   font-weight: inherit;
   font-family: inherit;
   font-size: inherit;
-  color: rgba(255, 255, 255, 0.7);
+  /*color: rgba(255, 255, 255, 0.7);*/
+  color: #fff;         /* изменил цвет */
   appearance: none;
 }
 
@@ -192,7 +198,8 @@ ol {
   display: flex;
   flex-direction: column;
   justify-content: start;
-  height: 534px;
+  /*height: 534px;*/
+  height: 100%;        /* убрал явно заданную высотру */
 }
 
 /* стили заголовка */
@@ -229,11 +236,12 @@ ol {
 /* контейнер для элемента списка */
 .content__list-item {
   padding: 0 3px;
-  height: 103px;
+  /*height: 103px;*/       /* убрал высоту */
 }
 
 /* стили для ссылки */
 .content__card-link {
+  display: block;          /* сделал элемент блочным  */
   text-decoration: none;
   color: #fff; 
 }
@@ -244,11 +252,16 @@ ol {
   flex-direction: row;
   justify-content: space-between;
 	align-items: flex-start;
-  height: 103px;
+  /*height: 103px;*/        /* убрал высоту */
 }
 
 /* контейнер для заголовка и текстового описания карточки */
 .content__video-card-description-container {
+  display: flex;                /* контейнер перевел во flex-контейнер */
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 2px;                     /* подобрал расстояние между заголовком и описанием */
   width: 50%;
   flex-grow: 1;
 }
@@ -256,6 +269,7 @@ ol {
 /* стили заголовка карточки */
 .content__video-card-title {
   font-size: 30px;
+  max-height: 46px;         /* явно указал высоту строки в соответствии с макетом */
   text-transform: uppercase;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -272,7 +286,7 @@ ol {
 /* контейнер для видео карточки */
 .content__video-card-thumbnail {
   width: 50%;
-  height: 100%;
+  height: 103px;           /* явно указали высоту видео */
   object-fit: cover;
   object-position: center;
 }
@@ -284,8 +298,10 @@ ol {
 
 /* общие стили */
 .button {
+  font-family: inherit;  /* добавил наследование шрифта */
+  font-weight: 700;      /* добавил толщину шрифта */
   font-size: 18px;
-  height: 34px;
+  min-height: 34px;      /* поменял height на min-height */
   background-color: transparent;
   color: #fff;
   border: 1px solid #fff;
@@ -293,7 +309,7 @@ ol {
 
 /* дополнительне стили кнопки "Найти" */
 .search-form__submit-button {
-  width: 194px;
+  min-width: 194px;               /* поменял width на min-width */
   align-self: flex-end;
 }
 
@@ -319,16 +335,16 @@ ol {
 
 /* active для тектового поля ввода города */
 .search-form__textfield:active {
-  border: 1px solid rgba(255, 255, 255, 0.7);
+  /*border: 1px solid rgba(255, 255, 255, 0.7);*/
+  outline: 1px solif #fff;     /* поменял цвет */
 }
 
 /* active кнопки найти и карточки*/
 .button:active,
-.content__card-link_current:active,
-.content__card-link_current:first-child {
+.content__card-link:active,        /* исправил селекторы */
+.content__card-link_current {      /* исправил селекторы */
   background-color: #545050;
 }
-
 
 /* focus-visible */
 .search-form__textfield:focus-visible,
