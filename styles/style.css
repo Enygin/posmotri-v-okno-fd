@@ -270,7 +270,7 @@ ol {
 .content__video-card-title {
   font-size: 30px;
  /* max-height: 46px; */        /* явно указал высоту строки в соответствии с макетом */
-  line-height: 36px;            /* указал line-heigh вместо max-height, подобрал размер */
+  line-height: 30px;            /* указал line-heigh вместо max-height, размер по макету */
   text-transform: uppercase;
   text-overflow: ellipsis;
   white-space: nowrap;
